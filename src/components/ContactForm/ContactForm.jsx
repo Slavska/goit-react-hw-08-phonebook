@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'redux/operations';
-import { selectItems } from 'redux/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { selectItems } from 'redux/contacts/selectors';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { nanoid } from 'nanoid';
 import { Input, InputGroup, InputLeftElement, Button } from '@chakra-ui/react';
 import { PhoneIcon, AtSignIcon, AddIcon } from '@chakra-ui/icons';
 
-export function ContactForm() {
+export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();

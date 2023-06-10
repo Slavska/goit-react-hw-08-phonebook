@@ -4,8 +4,8 @@ import {
   selectFilterContacts,
   selectLoading,
   selectError,
-} from 'redux/selectors';
-import { deleteContact, fetchContacts } from 'redux/operations';
+} from 'redux/contacts/selectors';
+import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 import { CloseIcon } from '@chakra-ui/icons';
 import {
   Popover,
@@ -25,7 +25,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-export const ContactList = () => {
+export default function ContactList() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectFilterContacts);
   const isLoading = useSelector(selectLoading);
@@ -105,4 +105,4 @@ export const ContactList = () => {
       </CardBody>
     </Card>
   );
-};
+}

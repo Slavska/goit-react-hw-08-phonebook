@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
-import { selectFilter } from 'redux/selectors';
+import { setFilter } from 'redux/contacts/filterSlice';
+import { selectFilter } from 'redux/contacts/selectors';
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons';
 
-export const Filter = () => {
+export default function Filter() {
   const dispatcher = useDispatch();
   const filter = useSelector(selectFilter);
 
@@ -38,4 +38,4 @@ export const Filter = () => {
       </label>
     </form>
   );
-};
+}

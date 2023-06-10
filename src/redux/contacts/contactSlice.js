@@ -18,13 +18,13 @@ export const contactSlice = createSlice({
       .addCase(addContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items.unshift(action.payload);
+        state.items.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
-          contact => contact.id === action.payload.id
+          contact => contact.id === action.payload
         );
         state.items.splice(index, 1);
       })

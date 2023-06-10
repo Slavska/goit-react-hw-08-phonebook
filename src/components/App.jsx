@@ -1,25 +1,53 @@
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { Container, Box, Center } from '@chakra-ui/react';
+import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import PublicRoute from 'routes/PublicRoute';
+import PrivateRoute from 'routes/PrivateRoute';
+import { useDispatch } from 'react-redux';
+import { refreshThunk } from 'redux/auth/authOperations';
+import Home from 'pages/Home';
+import { Login } from 'pages/Login';
+import { Registration } from 'pages/Register';
+import Contact from 'pages/Contact';
+import NotFound from 'pages/NotFound/NotFound';
+import AppBar from './AppBar/AppBar';
 
-export function App() {
+export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
+
   return (
-    <Box w="auto" minH="100vh" bgGradient="linear(to-r, pink.200, purple.500)">
-      <Container
-        bgGradient="linear(to-r, pink.200, purple.500)"
-        w="auto"
-        minH="100vh"
-        pt="50px"
-        pb="50px"
-      >
-        <Center h="auto" color="white" fontSize="4xl" fontWeight="extrabold">
-          <h1>Phonebook</h1>
-        </Center>
-        <ContactForm />
-        <Filter />
-        <ContactList />
-      </Container>
-    </Box>
+    <Routes>
+      <Route path="/" element={<AppBar />}>
+        <Route index element={<Home />} />
+        <Route
+          path="login"
+          element={
+            <PublicRoute restricted>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="register"
+          element={
+            <PublicRoute restricted>
+              <Registration />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="contact"
+          element={
+            <PrivateRoute>
+              <Contact />
+            </PrivateRoute>
+          }
+        />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
