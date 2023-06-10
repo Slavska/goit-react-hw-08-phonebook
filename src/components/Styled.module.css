@@ -1,0 +1,17 @@
+.LinkAuth {
+  color: #e8156d;
+  font-weight: 600;
+}
+.LinkAuth:hover,
+.LinkAuth:focus {
+  text-decoration: underline;
+}
+.LinkNav {
+  margin-left: 20px;
+  color: #b314ad;
+  font-weight: 500;
+}
+.LinkNav:hover,
+.LinkNav:focus {
+  text-decoration: underline;
+}

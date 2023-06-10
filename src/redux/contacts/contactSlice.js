@@ -1,32 +1,41 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './operations';
 
-export const contactSlice = createSlice({
-  name: 'contacts',
-  initialState: {
+const initialState = {
+  contacts: {
     items: [],
     isLoading: false,
     error: null,
+  },
+  filter: '',
+};
+export const contactSlice = createSlice({
+  name: 'contacts',
+  initialState,
+  reducers: {
+    setFilter(state, action) {
+      state.filter = action.payload;
+    },
   },
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = action.payload;
+        state.contacts.items = action.payload;
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items.push(action.payload);
+        state.contacts.items.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const index = state.items.findIndex(
+        const index = state.contacts.items.findIndex(
           contact => contact.id === action.payload
         );
-        state.items.splice(index, 1);
+        state.contacts.items.splice(index, 1);
       })
       .addMatcher(
         action => action.type.endsWith('/fulfilled'),
@@ -50,4 +59,5 @@ export const contactSlice = createSlice({
   },
 });
 
+export const { setFilter } = contactSlice.actions;
 export const contactReducer = contactSlice.reducer;

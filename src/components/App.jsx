@@ -1,7 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import PublicRoute from 'routes/PublicRoute';
-import PrivateRoute from 'routes/PrivateRoute';
 import { useDispatch } from 'react-redux';
 import { refreshThunk } from 'redux/auth/authOperations';
 import Home from 'pages/Home';
@@ -9,6 +7,8 @@ import { Login } from 'pages/Login';
 import { Registration } from 'pages/Register';
 import Contact from 'pages/Contact';
 import NotFound from 'pages/NotFound/NotFound';
+import PublicRoute from 'routes/PublicRoute';
+import PrivateRoute from 'routes/PrivateRoute';
 import AppBar from './AppBar/AppBar';
 
 export default function App() {
@@ -21,7 +21,14 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<AppBar />}>
-        <Route index element={<Home />} />
+        <Route
+          index
+          element={
+            <PublicRoute>
+              <Home />
+            </PublicRoute>
+          }
+        />
         <Route
           path="login"
           element={
@@ -39,7 +46,7 @@ export default function App() {
           }
         />
         <Route
-          path="contact"
+          path="contacts"
           element={
             <PrivateRoute>
               <Contact />

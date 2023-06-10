@@ -1,20 +1,22 @@
-import { useSelector } from 'react-redux';
-import { selectorIsLogin } from 'redux/auth/authSelectors';
+import { Container, Heading } from '@chakra-ui/react';
 
 function Home() {
-  const isLoggedIn = useSelector(selectorIsLogin);
   return (
-    <>
-      <>
-        <h2>Welcome</h2>
-        {!isLoggedIn && (
-          <p>
-            Please, <b>Sign up</b> or <b>Log in</b> to have access to the
-            Phonebook!
-          </p>
-        )}
-      </>
-    </>
+    <Container
+      pt="50px"
+      bgGradient="linear(to-r, pink.200, purple.500)"
+      pb="50px"
+    >
+      <Heading
+        color="pink.500"
+        as="b"
+        fontSize="4xl"
+        display="flex"
+        justifyContent="center"
+      >
+        WELCOME
+      </Heading>
+    </Container>
   );
 }
 

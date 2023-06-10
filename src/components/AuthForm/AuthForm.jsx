@@ -1,10 +1,23 @@
+import { Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import css from '../Styled.module.css';
 
 function AuthForm() {
   return (
     <nav>
-      <Link to="/register">Sign up</Link>
-      <Link to="/login">Log in</Link>
+      {
+        <Text fontSize="2xl" color="white" textAlign="center">
+          Please{' '}
+          <Link className={css.LinkAuth} to="/register">
+            Sign up
+          </Link>{' '}
+          or{' '}
+          <Link className={css.LinkAuth} to="/login">
+            Log in
+          </Link>{' '}
+          to have access to the Phonebook!
+        </Text>
+      }
     </nav>
   );
 }

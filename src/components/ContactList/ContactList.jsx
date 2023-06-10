@@ -64,11 +64,11 @@ export default function ContactList() {
         />
       )}
       <CardBody display="flex" flexWrap="wrap" gap="20px">
-        {contacts.map(({ id, name, phone }) => (
+        {contacts.map(({ id, name, number }) => (
           <Box
             key={id}
             justifyContent="space-between"
-            w="210px"
+            w="196px"
             display="flex"
             alignItems="center"
             color="green"
@@ -86,7 +86,7 @@ export default function ContactList() {
                 <PopoverHeader fontWeight="semibold">{name}</PopoverHeader>
                 <PopoverArrow />
                 <PopoverCloseButton />
-                <PopoverBody>{phone}</PopoverBody>
+                <PopoverBody>{number}</PopoverBody>
               </PopoverContent>
             </Popover>
             <Circle

@@ -1,5 +1,14 @@
+import {
+  Container,
+  Heading,
+  Input,
+  Button,
+  InputGroup,
+  InputLeftElement,
+} from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { loginThunk } from 'redux/auth/authOperations';
+import { AtSignIcon, ViewOffIcon, AddIcon } from '@chakra-ui/icons';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -13,26 +22,59 @@ export const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-darkMain">
-      <form
-        className="flex gap-6 text-white flex-col w-1/3 p-10 border-blue-600 border-2 rounded-lg"
-        onSubmit={handleSubmit}
-      >
-        <h1 className="text-center text-2xl">Login Form</h1>
-        <input
-          className="border px-2 text-black"
-          name="email"
-          placeholder="Email..."
-          type="text"
-        />
-        <input
-          className="border px-2 text-black"
-          name="password"
-          placeholder="Password..."
-          type="password"
-        />
-        <button className="border bg-blue-600 rounded-md">Login</button>
+    <Container mt="20px" mb="40px">
+      <form onSubmit={handleSubmit}>
+        <Heading textAlign="center" color="white" mb="20px">
+          Login Form
+        </Heading>
+        <InputGroup mb="20px" mt="20px">
+          <InputLeftElement pointerEvents="none">
+            <AtSignIcon color="white" />
+          </InputLeftElement>
+          <Input
+            _focus={{
+              borderColor: 'pink.500',
+              boxShadow: '0 0 0 1px #D53F8C',
+            }}
+            size="md"
+            mb="10px"
+            w="100%"
+            name="email"
+            autoComplete="off"
+            type="text"
+            placeholder="Email..."
+          />
+        </InputGroup>
+        <InputGroup mb="20px" mt="20px">
+          <InputLeftElement pointerEvents="none">
+            <ViewOffIcon color="white" />
+          </InputLeftElement>
+          <Input
+            mb="10px"
+            _focus={{
+              borderColor: 'pink.500',
+              boxShadow: '0 0 0 1px #D53F8C',
+            }}
+            size="md"
+            w="100%"
+            name="password"
+            type="password"
+            placeholder="Password..."
+          />
+        </InputGroup>
+        <Button
+          leftIcon={<AddIcon />}
+          colorScheme="pink"
+          variant="solid"
+          type="submit"
+          mr="auto"
+          ml="auto"
+          display="flex"
+          mt="20px"
+        >
+          Login
+        </Button>
       </form>
-    </div>
+    </Container>
   );
 };
