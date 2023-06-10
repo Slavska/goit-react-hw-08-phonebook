@@ -1,13 +1,10 @@
 import { React } from 'react';
-import { selectorIsLogin } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
-import Loader from '../Loader/Loader';
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
+import { selectorIsLogin } from 'redux/auth/authSelectors';
+import UserMenu from 'components/UserMenu/UserMenu';
 import css from '../Styled.module.css';
 import { Box, Container } from '@chakra-ui/react';
-import UserMenu from 'components/UserMenu/UserMenu';
 
 export default function Navigation() {
   const isLoggedIn = useSelector(selectorIsLogin);
@@ -32,9 +29,7 @@ export default function Navigation() {
         </Container>
         {isLoggedIn && <UserMenu />}
       </Container>
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+      <Outlet />
     </Box>
   );
 }

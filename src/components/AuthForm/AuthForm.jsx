@@ -1,6 +1,6 @@
-import { Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import css from '../Styled.module.css';
+import { Text } from '@chakra-ui/react';
 
 function AuthForm() {
   return (

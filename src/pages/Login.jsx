@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { loginThunk } from 'redux/auth/authOperations';
 import {
   Container,
   Heading,
@@ -6,8 +8,6 @@ import {
   InputGroup,
   InputLeftElement,
 } from '@chakra-ui/react';
-import { useDispatch } from 'react-redux';
-import { loginThunk } from 'redux/auth/authOperations';
 import { AtSignIcon, ViewOffIcon, AddIcon } from '@chakra-ui/icons';
 
 export const Login = () => {
@@ -60,6 +60,7 @@ export const Login = () => {
             name="password"
             type="password"
             placeholder="Password..."
+            minLength="7"
           />
         </InputGroup>
         <Button

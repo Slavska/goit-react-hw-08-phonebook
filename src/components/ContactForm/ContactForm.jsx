@@ -45,6 +45,7 @@ export default function ContactForm() {
         `${number} is already in contacts with ${nameAdded.name}!`
       );
     } else {
+      Notify.success(`${name} added!`);
       const newContact = {
         id: nanoid(),
         name,

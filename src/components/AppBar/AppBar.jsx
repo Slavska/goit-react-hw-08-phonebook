@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { selectorIsLogin } from '../../redux/auth/authSelectors';
+import { selectorIsLogin } from 'redux/auth/authSelectors';
 import AuthForm from 'components/AuthForm/AuthForm';
-import Navigation from '../Navigation/Navigation';
+import Navigation from 'components/Navigation/Navigation';
 import { Container, Box } from '@chakra-ui/react';
 
 function AppBar() {

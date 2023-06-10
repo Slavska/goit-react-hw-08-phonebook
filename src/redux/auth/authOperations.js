@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { clearToken, instance, setToken } from '../apiConfig';
+import { Notify } from 'notiflix';
+import { clearToken, instance, setToken } from '../../config/apiConfig';
 
 export const registrationThunk = createAsyncThunk(
   'auth/registration',
@@ -9,6 +10,7 @@ export const registrationThunk = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (error) {
+      Notify.failure('Please try again!');
       return rejectWithValue(error.message);
     }
   }
@@ -23,6 +25,7 @@ export const loginThunk = createAsyncThunk(
 
       return data;
     } catch (error) {
+      Notify.failure('Please try again!');
       return rejectWithValue(error.message);
     }
   }
