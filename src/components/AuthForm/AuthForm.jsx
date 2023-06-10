@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import css from '../Styled.module.css';
+import { LinkAuth } from '../App/App.Styled';
 import { Text } from '@chakra-ui/react';
 
 function AuthForm() {
@@ -7,15 +6,9 @@ function AuthForm() {
     <nav>
       {
         <Text fontSize="2xl" color="white" textAlign="center">
-          Please{' '}
-          <Link className={css.LinkAuth} to="/register">
-            Sign up
-          </Link>{' '}
-          or{' '}
-          <Link className={css.LinkAuth} to="/login">
-            Log in
-          </Link>{' '}
-          to have access to the Phonebook!
+          Please <LinkAuth to="/register">Sign up</LinkAuth> or{' '}
+          <LinkAuth to="/login">Log in</LinkAuth> to have access to the
+          Phonebook!
         </Text>
       }
     </nav>

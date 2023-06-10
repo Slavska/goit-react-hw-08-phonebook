@@ -7,7 +7,7 @@ import { Login } from 'pages/Login';
 import { Registration } from 'pages/Register';
 import Contact from 'pages/Contact';
 import NotFound from 'pages/NotFound/NotFound';
-import AppBar from './AppBar/AppBar';
+import AppBar from '../AppBar/AppBar';
 import PublicRoute from 'routes/PublicRoute';
 import PrivateRoute from 'routes/PrivateRoute';
 

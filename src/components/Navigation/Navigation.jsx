@@ -1,10 +1,10 @@
 import { React } from 'react';
 import { useSelector } from 'react-redux';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { selectorIsLogin } from 'redux/auth/authSelectors';
 import UserMenu from 'components/UserMenu/UserMenu';
-import css from '../Styled.module.css';
 import { Box, Container } from '@chakra-ui/react';
+import { LinkNav } from 'components/App/App.Styled';
 
 export default function Navigation() {
   const isLoggedIn = useSelector(selectorIsLogin);
@@ -18,13 +18,13 @@ export default function Navigation() {
         justifyContent="space-between"
       >
         <Container>
-          <Link className={css.LinkNav} to="/" replace>
+          <LinkNav to="/" replace>
             HOME
-          </Link>
+          </LinkNav>
           {isLoggedIn && (
-            <Link className={css.LinkNav} to="contacts" replace>
+            <LinkNav to="contacts" replace>
               CONTACTS
-            </Link>
+            </LinkNav>
           )}
         </Container>
         {isLoggedIn && <UserMenu />}
