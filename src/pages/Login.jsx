@@ -40,8 +40,9 @@ export const Login = () => {
             mb="10px"
             w="100%"
             name="email"
-            autoComplete="off"
+            autoComplete="on"
             type="text"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             placeholder="Email..."
           />
         </InputGroup>
@@ -61,6 +62,7 @@ export const Login = () => {
             type="password"
             placeholder="Password..."
             minLength="7"
+            autoComplete="on"
           />
         </InputGroup>
         <Button

@@ -42,6 +42,8 @@ export const Registration = () => {
             name="name"
             type="text"
             placeholder="Name..."
+            autoComplete="on"
+            minLength="2"
           />
         </InputGroup>
         <InputGroup mb="20px" mt="20px">
@@ -57,9 +59,10 @@ export const Registration = () => {
             mb="10px"
             w="100%"
             name="email"
-            autoComplete="off"
+            autoComplete="on"
             type="text"
             placeholder="Email..."
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
         </InputGroup>
         <InputGroup mb="20px" mt="20px">
@@ -78,6 +81,7 @@ export const Registration = () => {
             type="password"
             placeholder="Password..."
             minLength="7"
+            autoComplete="on"
           />
         </InputGroup>
         <Button
